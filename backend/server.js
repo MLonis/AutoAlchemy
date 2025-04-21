@@ -11,10 +11,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve index.html for all unknown routes (for Render deployment)
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
 
 // Email transporter
 const transporter = nodemailer.createTransport({
@@ -96,6 +92,12 @@ app.post('/send', async (req, res) => {
     res.status(500).send('Error sending email');
   }
 });
+
+// Serve index.html for all unknown routes (for Render deployment)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 
 // Start server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
