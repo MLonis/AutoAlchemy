@@ -771,12 +771,11 @@ h2 {
     font-size: 0.75rem;
   }
 
-  /* Change form layout to single column on very small screens */
+  /* 2-column layout stays for most phones */
   .form-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
-  /* Make inputs and selects smaller and consistent */
   .form-grid input,
   .form-grid select {
     width: 100%;
@@ -786,7 +785,6 @@ h2 {
     box-sizing: border-box;
   }
 
-  /* Make textarea bigger height */
   .form-grid textarea {
     width: 100%;
     height: 120px;
@@ -795,12 +793,10 @@ h2 {
     box-sizing: border-box;
   }
 
-  /* Tighten the form layout */
   .estimate-form {
     padding: 0 0.5rem;
   }
 
-  /* SPECIAL: Make date input match style */
   input[type="date"] {
     height: 50px;
     font-size: 0.9rem;
