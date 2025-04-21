@@ -11,6 +11,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public')); // Serve static files
 
+// Serve index.html for all unknown routes (for Render deployment)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 // Email transporter
 const transporter = nodemailer.createTransport({
   service: 'gmail',
