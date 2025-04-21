@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public')); // Serve static files
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Serve index.html for all unknown routes (for Render deployment)
 app.get('*', (req, res) => {
