@@ -713,7 +713,7 @@ h2 {
 
   .form-grid {
     display: grid;
-    grid-template-columns: 1fr, 1fr; 
+    grid-template-columns: 1fr 1fr; 
     gap: 1rem;
     padding: 0 1rem;
   }
@@ -770,6 +770,10 @@ h2 {
   select {
     font-size: 0.75rem;
   }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }  
 
   /* Make the inputs themselves smaller */
   .form-grid input,
