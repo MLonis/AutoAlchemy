@@ -770,17 +770,29 @@ h2 {
   select {
     font-size: 0.75rem;
   }
-  
+
+  /* Change form layout to single column on very small screens */
   .form-grid {
     grid-template-columns: 1fr;
-  }  
+  }
 
-  /* Make the inputs themselves smaller */
+  /* Make inputs and selects smaller and consistent */
   .form-grid input,
-  .form-grid select,
-  .form-grid textarea {
+  .form-grid select {
+    width: 100%;
+    height: 50px;
     padding: 0.5rem;
     font-size: 0.9rem;
+    box-sizing: border-box;
+  }
+
+  /* Make textarea bigger height */
+  .form-grid textarea {
+    width: 100%;
+    height: 120px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    box-sizing: border-box;
   }
 
   /* Tighten the form layout */
@@ -788,19 +800,7 @@ h2 {
     padding: 0 0.5rem;
   }
 
-  /* NEW — Make input and selects the same height */
-  /* NEW — Make input and selects the same height */
-  .form-grid input,
-  .form-grid select {
-    height: 50px;
-  }
-  
-  /* NEW — Make textarea taller */
-  .form-grid textarea {
-    height: 120px;
-  }
-  
-  /* SPECIAL — Make date input look consistent */
+  /* SPECIAL: Make date input match style */
   input[type="date"] {
     height: 50px;
     font-size: 0.9rem;
@@ -809,5 +809,13 @@ h2 {
     border: 2px solid var(--color-primary-blue);
     border-radius: 8px;
     padding: 0 0.5rem;
+    box-sizing: border-box;
+  }
+}
+
+/* Tiny phones — stack all fields */
+@media (max-width: 400px) {
+  .form-grid {
+    grid-template-columns: 1fr;
   }
 }
