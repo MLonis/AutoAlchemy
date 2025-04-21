@@ -789,13 +789,25 @@ h2 {
   }
 
   /* NEW — Make input and selects the same height */
+  /* NEW — Make input and selects the same height */
   .form-grid input,
   .form-grid select {
     height: 50px;
   }
-
+  
   /* NEW — Make textarea taller */
   .form-grid textarea {
     height: 120px;
+  }
+  
+  /* SPECIAL — Make date input look consistent */
+  input[type="date"] {
+    height: 50px;
+    font-size: 0.9rem;
+    background: #1a1a1a;
+    color: var(--color-white);
+    border: 2px solid var(--color-primary-blue);
+    border-radius: 8px;
+    padding: 0 0.5rem;
   }
 }
