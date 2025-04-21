@@ -1,0 +1,786 @@
+:root {
+  /* Primary branding */
+  --color-primary-blue:      #3AB6FF;
+  --color-secondary-blue:    #5AD1FF;
+  --color-primary-orange:    #FF6B00;
+
+  /* Neutrals & text */
+  --color-dark-gray:         #000000;
+  --color-dark-gray-end:     #111111;
+  --color-light-gray:        #CCCCCC;
+  --color-white:             #FFFFFF;
+}
+
+/* Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Prevent horizontal scroll everywhere */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw; 
+}
+
+/* Page Background */
+body {
+  background: linear-gradient(to bottom, #000000 0%, #000000 100%);
+  color: var(--color-white);
+}
+
+/* Global Section Styling */
+section {
+  border-top: 1px solid #1a1a1a;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7); 
+    backdrop-filter: blur(6px); 
+    padding: 1.5rem 2rem;
+  }  
+  
+  .logo {
+    max-width: 150px; 
+    height: auto;
+    margin-left: 1rem;
+  }  
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: var(--color-primary-blue);
+    font-weight: bold;
+    transition: color 0.3s, transform 0.2s ease;
+    display: inline-block;
+  }
+  
+  .nav-links a:hover {
+    color: var(--color-primary-orange);
+    transform: scale(1.2); 
+    letter-spacing: 1px;
+  }  
+  
+  /* Hero Section */
+  .hero {
+    background: url('../images/car1.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 0 2rem;
+    z-index: 0;
+  }  
+  
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, #111);
+    z-index: 1;
+  }
+  
+  /* Dark overlay on hero image */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: 1;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    position: relative;
+    animation: fadeInUp 1s ease-out; 
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    color: var(--color-light-gray);
+    margin-bottom: 2rem;
+  }
+  
+  .cta-btn {
+    will-change: transform, background;
+    margin-top: 1rem;
+    background: linear-gradient(45deg, var(--color-primary-blue), var(--color-secondary-blue));
+    color: var(--color-dark-gray);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1rem;
+    box-shadow: 0 6px 20px rgba(58, 182, 255, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    position: relative;
+    transform: translateY(0);
+    animation: pulse 3s infinite;
+  }  
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 15px rgba(58, 182, 255, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(58, 182, 255, 0.7);
+    }
+    100% {
+      box-shadow: 0 0 15px rgba(58, 182, 255, 0.4);
+    }
+  }
+  
+  .cta-btn:hover {
+    background: linear-gradient(45deg, var(--color-primary-orange), #FF8533);
+    transform: translateY(-7px) scale(1.05); 
+    box-shadow: 0 10px 30px rgba(255, 107, 0, 0.5);
+  }  
+
+ /* Reviews Section */
+.reviews {
+  background: transparent;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.review-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.review {
+  background: #1a1a1a;
+  border-left: 4px solid var(--color-primary-blue);
+  padding: 1.5rem;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(58, 182, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.review:hover {
+  transform: scale(1.03);
+  border-left-color: var(--color-primary-orange);
+}
+
+.review p {
+  font-size: 1rem;
+  color: var(--color-light-gray);
+  margin-bottom: 1rem;
+}
+
+.review h4 {
+  font-size: 1rem;
+  color: var(--color-primary-blue);
+}
+
+/* Estimate Section */
+.estimate {
+  background: transparent;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-top: 1px solid #222;
+}
+
+.estimate-form {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0 1rem; 
+}
+
+/* form fields default: solid blue border, no glow */
+.estimate-form input,
+.estimate-form select,
+.estimate-form textarea {
+  border: 2px solid var(--color-primary-blue);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* on focus: orange border + orange glow */
+.estimate-form input:focus,
+.estimate-form select:focus,
+.estimate-form textarea:focus {
+  border-color: var(--color-primary-orange);
+  outline: none;
+  box-shadow: 0 0 8px rgba(255, 107, 0, 0.5);
+}
+
+/* Grid Layout for Form */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 100%;  
+  margin: 2rem auto 0 auto;
+  align-items: start;
+}
+
+/* Make all inputs, selects, and textareas full width inside grid */
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  border: 2px solid var(--color-primary-blue);
+  border-radius: 8px;
+  background: #1a1a1a;
+  color: var(--color-white);
+  box-sizing: border-box;
+}
+
+/* Make the message textarea span across both columns */
+.form-grid textarea {
+  grid-column: span 2;
+  resize: none;
+}
+
+/* Submit Button */
+.estimate-form button {
+  grid-column: span 2;
+  width: 100%;
+  background: var(--color-primary-blue);
+  color: var(--color-dark-gray);
+  padding: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.estimate-form button:hover {
+  background: var(--color-primary-orange);
+}
+
+/* Contact Section */
+.contact {
+  background: linear-gradient(to bottom, #0a0a0a, #000000);
+  color: var(--color-white);
+  padding: 4rem 2rem;
+  text-align: center;
+  padding-bottom: 3rem;
+  border-top: 1px solid #222;
+  position: relative;
+  margin-bottom: 0;
+}
+
+.contact-info {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  color: var(--color-light-gray);
+}
+
+.contact-info p {
+  margin-bottom: 1rem;
+}
+
+.social-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  color: var(--color-primary-blue);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--color-primary-orange);
+  transform: translateY(-2px); 
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.footer-logo {
+  margin-top: 2rem;
+  margin-bottom: 1rem; 
+}
+
+.footer-logo img {
+  width: 200px; 
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* About Section */
+.about {
+  background: transparent;
+  color: var(--color-light-gray);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.about h2 {
+  color: var(--color-primary-blue);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Responsive Layout */
+#menu-toggle {
+  display: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Services Section */
+.services {
+  background: transparent;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.section-title {
+  color: var(--color-primary-blue);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.service-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.card {
+  opacity: 0; 
+  transform: translateY(20px); 
+  background: #1a1a1a;
+  border: 2px solid var(--color-primary-blue);
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 300px;
+  text-decoration: none; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform, opacity; 
+  backface-visibility: hidden;
+}
+
+/* WHEN VISIBLE ON SCREEN */
+.card.show {
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(255, 107, 0, 0.4); 
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  color: var(--color-white);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: var(--color-light-gray);
+  font-size: 0.95rem;
+}
+
+.footer {
+  background: #000000;
+  color: #888;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.85rem;
+  border-top: 1px solid #1a1a1a;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--color-primary-blue), transparent);
+  opacity: 0.4;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 70px;
+  right: 30px;
+  background-color: var(--color-primary-blue);
+  color: var(--color-dark-gray);
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 0.6rem 1rem;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Section Separator Lines */
+section {
+  position: relative;
+  border-top: 1px solid #1a1a1a;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+section::after {
+  content: '';
+  display: block;
+  width: 60%;
+  margin: 4rem auto 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-primary-blue), transparent);
+  opacity: 0.4;
+}
+
+/* Remove separator after Contact Section */
+.contact::after {
+  display: none;
+}
+
+/* Soft background shade effect */
+.about {
+  background: linear-gradient(to bottom, #0a0a0a, var(--color-dark-gray-end));
+}
+
+.services {
+  background: linear-gradient(to bottom, var(--color-dark-gray-end), #141414);
+}
+
+.reviews {
+  background: linear-gradient(to bottom, #141414, var(--color-dark-gray-end));
+}
+
+.estimate {
+  background: linear-gradient(to bottom, var(--color-dark-gray-end), #0d0d0d);
+}
+
+/* Service List Styling */
+.service-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 2rem auto;
+  max-width: 800px;
+  font-size: 1.1rem;
+  color: var(--color-white);
+  line-height: 1.8;
+  text-align: left;
+}
+
+.service-list li {
+  display: flex;
+  align-items: center;
+  margin: 12px 0;
+  font-weight: normal;
+  font-size: 1.2rem; 
+}
+
+.service-list i {
+  margin-right: 12px;
+  color: var(--color-primary-blue); 
+  font-size: 1.6rem; 
+  transition: color 0.3s ease;
+}
+
+.service-list i:hover {
+  color: var(--color-primary-orange);
+}
+
+.service-list li:hover {
+  transform: scale(1.05); 
+  transition: transform 0.3s ease;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--color-primary-blue);
+}
+
+/* ===== Responsive tweaks ===== */
+/* Tablet & phone */
+@media (max-width: 768px) {
+  /* 1) Hamburger toggle */
+  #menu-toggle {
+    display: block;
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    font-size: 1.8rem;
+    background: none;
+    color: var(--color-white);
+    border: none;
+    cursor: pointer;
+    margin-right: 1rem;
+    z-index: 1100; 
+  }
+
+  /* 2) Backdrop */
+  .menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 900;
+  }
+  .menu-backdrop.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* 3) Mobile nav */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--color-dark-gray);
+    max-height: 0;
+    overflow-y: auto;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    z-index: 1000;
+  }
+  .nav-links.show {
+    display: flex;
+    max-height: 80vh;
+    padding: 1rem 0;
+  }
+  .nav-links li {
+    width: 100%;
+  }
+  .nav-links a {
+    display: block;
+    padding: 0.75rem 0;
+    text-align: center;
+    color: var(--color-primary-blue);
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-links a:hover {
+    background: rgba(255,107,0,0.1);
+    color: var(--color-primary-orange);
+  }
+
+  /* 4) Navbar adjustments */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem; 
+    width: 100%;
+    position: relative;
+    z-index: 1002;
+  }
+
+  /* 5) Hero fix */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto !important;
+    padding: 2rem 1rem !important;
+  }
+  .hero-content {
+    margin-bottom: 1.5rem;
+    will-change: transform, opacity;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  /* 6) Stack cards, reviews, and form */
+  .service-cards,
+  .review-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-list {
+    padding-left: 10px; 
+  }
+
+  .service-list li {
+    padding-left: 5px;  
+    margin-bottom: 0.8rem; 
+    align-items: center;
+  }
+
+  .service-list i {
+    font-size: 1.3rem; 
+    margin-right: 10px; 
+  }
+
+  .service-list li:hover {
+    transform: none; 
+  }
+
+  .estimate-form {
+    width: 100%;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr, 1fr; 
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .form-grid input,
+  .form-grid select,
+  .form-grid textarea {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* 7) Social links stack */
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 1.2rem;            
+    margin-top: 2rem;   
+  }
+
+  .social-links a {
+    font-size: 1.1rem;    
+    text-decoration: none;
+  }
+
+  .social-links i {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  /* 8) Logo sizing */
+  .logo {
+    margin-left: 1rem;
+    max-width: 80px;
+  }
+
+  /* Fix date input text overlap on mobile */
+  input[type="date"] {
+    font-size: 0.9rem; 
+  }
+
+  .back-to-top {
+    bottom: 90px; 
+    right: 10px;   
+  }  
+}
+
+/* Shrink placeholders and padding on tiny screens */
+@media (max-width: 480px) {
+  /* Make placeholders smaller */
+  input::placeholder,
+  textarea::placeholder,
+  select {
+    font-size: 0.75rem;
+  }
+
+  /* Make the inputs themselves smaller */
+  .form-grid input,
+  .form-grid select,
+  .form-grid textarea {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* Tighten the form layout */
+  .estimate-form {
+    padding: 0 0.5rem;
+  }
+}

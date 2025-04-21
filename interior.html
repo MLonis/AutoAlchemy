@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Mobile Detailing Pro | Interior Detailing</title>
+  <meta name="description" content="Professional mobile interior car detailing—deep‑clean carpets, leather conditioning, and odor removal wherever you are.">
+
+  <meta property="og:title" content="Mobile Detailing Pro — Interior Detailing">
+  <meta property="og:description" content="Comprehensive interior car cleaning: shampoo, conditioning, and sanitization at your doorstep.">
+  <meta property="og:image" content="images/interior.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://your-domain.com/interior.html">
+
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script defer src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+  <script src="js/main.js" defer></script>
+</head>
+
+<body id="top">
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <img src="images/logo.png" alt="Logo" class="logo">
+      <button id="menu-toggle">☰</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="index.html#estimate">Estimate</a></li>
+        <li><a href="index.html#contact">Contact</a></li> 
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Mobile menu backdrop -->
+  <div class="menu-backdrop"></div>
+    
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Interior Detailing</h1>
+      <p>Deep cleaning and interior rejuvenation for your vehicle.</p>
+      <a href="#estimate" class="cta-btn">Get an Instant Estimate</a>
+    </div>
+  </section>
+
+  <!-- SERVICES DETAIL SECTION -->
+  <section class="services-detail">
+    <h2>Interior Detailing Includes:</h2>
+    <ul class="service-list">
+      <li><i class="fas fa-spray-can fa-lg"></i> Full surface wipe-down and sanitization</li>
+      <li><i class="fas fa-couch fa-lg"></i> Deep seat shampooing and fabric extraction</li>
+      <li><i class="fas fa-broom fa-lg"></i> Deep cleaning of all floor mats and carpets</li>
+      <li><i class="fas fa-tint fa-lg"></i> Spot treatment for stains and spills</li>
+      <li><i class="fas fa-window-restore fa-lg"></i> Interior window and mirror cleaning</li>
+      <li><i class="fas fa-door-open fa-lg"></i> Door jambs cleaned and polished</li>
+      <li><i class="fas fa-smog fa-lg"></i> Odor removal and interior deodorizing</li>
+      <li><i class="fas fa-paw fa-lg"></i> Pet hair removal from seats and floors</li>
+    </ul>
+  </section>
+    
+  <!-- ESTIMATE SECTION -->
+  <section class="estimate" id="estimate">
+    <h2 class="section-title">Request an Instant Estimate</h2>
+    <form class="estimate-form" id="estimate-form">
+      <div class="form-grid">
+        <!-- 1. Service -->
+        <select id="service" name="service" required autocomplete="off">
+          <option value="">Select Service</option>
+          <option value="interior">Interior Detail</option>
+          <option value="exterior">Exterior Detail</option>
+          <option value="full">Full Detail</option>
+        </select>
+    
+        <!-- 2. Vehicle Type -->
+        <select id="vehicleType" name="vehicleType" required autocomplete="off">
+          <option value="">Select Vehicle Type</option>
+          <option value="Car">Car</option>
+          <option value="Truck">Truck</option>
+          <option value="SUV">SUV</option>
+          <option value="Van">Van</option>
+          <option value="Motorcycle">Motorcycle</option>
+        </select>
+    
+        <!-- 3. Year, Make, Model -->
+        <input
+          type="text"
+          name="makeModel"
+          placeholder="Year, Make, Model"
+          required
+          autocomplete="off"
+        />
+    
+        <!-- 4. Condition -->
+        <select id="condition" name="condition" required autocomplete="off">
+          <option value="">Condition of Vehicle?</option>
+          <option value="Excellent">Excellent</option>
+          <option value="Good">Good</option>
+          <option value="Fair">Fair</option>
+          <option value="Poor">Poor</option>
+        </select>
+    
+        <!-- 5. Pet Hair -->
+        <select name="petHair" required autocomplete="off">
+          <option value="">Pet Hair?</option>
+          <option value="No">No</option>
+          <option value="Light">Light</option>
+          <option value="Moderate">Moderate</option>
+          <option value="Heavy">Heavy</option>
+        </select>
+    
+        <!-- 6. Matte Paint -->
+        <select name="mattePaint" required autocomplete="off">
+          <option value="">Matte Paint?</option>
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
+        </select>
+    
+        <!-- 7. Full Name -->
+        <input
+          type="text"
+          name="name"
+          placeholder="Full Name"
+          required
+          autocomplete="name"
+        />
+    
+        <!-- 8. Phone Number -->
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Phone Number"
+          required
+          autocomplete="tel"
+        />
+    
+        <!-- 9. Email Address -->
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          required
+          autocomplete="email"
+        />
+    
+        <!-- 10. City -->
+        <input
+          type="text"
+          name="location"
+          placeholder="City"
+          required
+          autocomplete="address-level2"
+        />
+    
+        <!-- 11. Preferred Time -->
+        <select id="appointmentTime" name="appointmentTime" required autocomplete="off">
+          <option value="">Preferred Appointment Time</option>
+          <option value="Morning">Morning</option>
+          <option value="Afternoon">Afternoon</option>
+          <option value="Evening">Evening</option>
+        </select>
+    
+        <!-- 12. Preferred Date -->
+        <input
+          type="date"
+          name="preferredDate"
+          placeholder="Preferred Date"
+          required
+          autocomplete="off"
+        />
+    
+        <!-- 13. Additional Info -->
+        <textarea
+          name="message"
+          placeholder="Additional Info (optional)"
+          rows="4"
+          autocomplete="off"
+        ></textarea>
+      </div>
+    
+      <button type="submit">Submit Request</button>
+    </form>    
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact" id="contact">
+    <h2 class="section-title">Get In Touch</h2>
+    <p>Have questions or want to book directly? Reach out any time.</p>
+    
+    <div class="contact-info">
+      <p><strong>Phone:</strong> (440) 725-3605</p>
+      <p><strong>Email:</strong> autoalchemy1@gmail.com</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/YOUR_USERNAME" target="_blank">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://www.tiktok.com/@YOUR_USERNAME" target="_blank">
+          <i class="fab fa-tiktok"></i> TikTok
+        </a>
+        <a href="https://www.facebook.com/YOUR_USERNAME" target="_blank">
+          <i class="fab fa-facebook"></i> Facebook
+        </a>
+      </div>
+      <div class="footer-logo">
+        <img src="images/logo.png" alt="Auto Alchemy Logo">
+      </div> 
+    </div>
+  </section>
+  
+  <footer class="footer">
+    <p>&copy; 2025 Auto Alchemy. All rights reserved.</p>
+  </footer>
+  
+  <a href="#top" class="back-to-top" id="backToTop" title="Back to Top">↑</a>
+</body>
+</html>
