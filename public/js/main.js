@@ -61,7 +61,7 @@ document.getElementById("estimate-form").addEventListener("submit", async e => {
     message: form.message.value
   };
   try {
-    const res = await fetch("http://localhost:3000/send", {
+    const res = await fetch("https://autoalchemy.onrender.com/send", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(data)
