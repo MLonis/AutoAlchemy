@@ -92,9 +92,9 @@ app.post('/send', async (req, res) => {
 
     res.status(200).send('Email sent successfully!');
   } catch (error) {
-    console.error('Email error:', error);
-    res.status(500).send('Error sending email');
-  }
+    console.error('❌ EMAIL ERROR:', error);
+    res.status(500).send(`Error sending email: ${error.message}`);
+  }  
 });
 
 // Start server
