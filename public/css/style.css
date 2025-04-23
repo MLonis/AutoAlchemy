@@ -751,11 +751,6 @@ h2 {
     max-width: 80px;
   }
 
-  /* Fix date input text overlap on mobile */
-  input[type="date"] {
-    font-size: 0.9rem; 
-  }
-
   .back-to-top {
     bottom: 90px; 
     right: 10px;   
@@ -795,24 +790,44 @@ h2 {
   .form-grid textarea {
     height: 120px;
   }
-
-  input[type="date"] {
-    appearance: none;
-    -webkit-appearance: none;
-    height: 50px;
-    padding: 0.5rem;
-    font-size: 0.9rem;
-    border: 2px solid var(--color-primary-blue);
-    border-radius: 8px;
-    background: #1a1a1a;
-    color: var(--color-white);
-    box-sizing: border-box;
-  }
 }
 
 /* Tiny phones — stack all fields */
 @media (max-width: 400px) {
   .form-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* === Mobile Form Fixes === */
+input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #1a1a1a;
+  color: var(--color-white);
+  border: 2px solid var(--color-primary-blue);
+  height: 50px;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* Improve placeholder visibility */
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-light-gray);
+  opacity: 1;
+}
+
+/* Ensure single column on mobile (up to tablets) */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid textarea,
+  .estimate-form button {
+    grid-column: span 1;
   }
 }
