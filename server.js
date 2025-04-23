@@ -20,8 +20,8 @@ app.use((req, res, next) => {
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASS
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
   }
 });
 
@@ -45,8 +45,8 @@ app.post('/send', async (req, res) => {
 
   try {
     await transporter.sendMail({
-      from: `"Auto Alchemy" <${process.env.GMAIL_USER}>`,
-      to: process.env.GMAIL_USER,
+      from: `"Auto Alchemy" <${process.env.EMAIL_USER}>`,
+      to: 'autoalchemy1@gmail.com',
       subject: '🚘 New Auto Alchemy Estimate Request',
       html: `
       <div style="background: #0a0a0a; padding: 30px; border-radius: 12px; max-width: 600px; margin: auto; font-family: 'Segoe UI', sans-serif; color: #FFFFFF;">

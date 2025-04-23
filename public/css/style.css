@@ -817,90 +817,12 @@ h2 {
   }
 }
 
-
-
-/* === Mobile Form Fixes === */
-input[type="date"] {
-  appearance: none;
-  -webkit-appearance: none;
-  background-color: #1a1a1a;
-  color: var(--color-white);
-  border: 2px solid var(--color-primary-blue);
-  height: 50px;
-  padding: 0.5rem;
-  font-size: 0.9rem;
-  border-radius: 8px;
-  box-sizing: border-box;
-}
-
-/* Ensure single column on mobile (up to tablets) */
-@media (max-width: 768px) {
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-grid textarea,
-  .estimate-form button {
-    grid-column: span 1;
-  }
-}
-
-/* Improve placeholder visibility */
-input::placeholder,
-textarea::placeholder {
-  color: var(--color-light-gray);
-  opacity: 1;
-}
-
-
-
-/* === Mobile Stability Fixes === */
-html, body {
-  height: 100%;
-  overflow-x: hidden;
-}
-
 input,
-select,
-textarea {
-  font-size: 16px; /* Prevent mobile zooming on focus */
-}
-
-
-
-/* === iOS Safari / Chrome Fixes for Form UX === */
-
-/* 1. Prevent zooming on input focus */
-input, select, textarea {
-  font-size: 16px;  /* Prevents iOS zoom */
-}
-
-html {
-  -webkit-text-size-adjust: 100%; /* Prevents iOS font scaling */
-  height: 100%;
-}
-
-body {
-  height: 100%;
-}
-
-/* 2. Improve date input appearance on iOS */
-input[type="date"]:placeholder-shown {
-  color: #6c757d;
-}
-
-/* 3. Force custom viewport resizing behavior when keyboard appears */
-@supports (font: -apple-system-body) {
-  input[type="date"] {
-    font-family: -apple-system;
-  }
-}
-
-/* 4. Dynamic viewport height fix for 100vh issues */
-:root {
-  --vh: 100vh;
-}
-
-.full-screen-section {
-  height: var(--vh);
+textarea,
+select {
+  font-size: 16px;        /* Prevent iOS zooming */
+  line-height: 1.5;       /* Fix letter cutoff */
+  padding: 0.75rem;       /* Better vertical spacing */
+  height: auto;           /* Prevent clipping */
+  box-sizing: border-box;
 }
