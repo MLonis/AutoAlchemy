@@ -865,3 +865,42 @@ select,
 textarea {
   font-size: 16px; /* Prevent mobile zooming on focus */
 }
+
+
+
+/* === iOS Safari / Chrome Fixes for Form UX === */
+
+/* 1. Prevent zooming on input focus */
+input, select, textarea {
+  font-size: 16px;  /* Prevents iOS zoom */
+}
+
+html {
+  -webkit-text-size-adjust: 100%; /* Prevents iOS font scaling */
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+/* 2. Improve date input appearance on iOS */
+input[type="date"]:placeholder-shown {
+  color: #6c757d;
+}
+
+/* 3. Force custom viewport resizing behavior when keyboard appears */
+@supports (font: -apple-system-body) {
+  input[type="date"] {
+    font-family: -apple-system;
+  }
+}
+
+/* 4. Dynamic viewport height fix for 100vh issues */
+:root {
+  --vh: 100vh;
+}
+
+.full-screen-section {
+  height: var(--vh);
+}

@@ -169,3 +169,26 @@ function adjustPlaceholders() {
 
 window.addEventListener('DOMContentLoaded', adjustPlaceholders);
 window.addEventListener('resize', adjustPlaceholders);
+
+// JavaScript: Fix for 100vh jump and input focus jumping on iOS
+function setRealVh() {
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
+}
+window.addEventListener('resize', setRealVh);
+window.addEventListener('orientationchange', setRealVh);
+document.addEventListener('DOMContentLoaded', setRealVh);
+
+// Optional: Prevent input focus jump glitch in Safari
+document.querySelectorAll('input, textarea, select').forEach(el => {
+  el.addEventListener('focus', () => {
+    setTimeout(() => {
+      window.scrollTo(window.pageXOffset, window.pageYOffset);
+    }, 50);
+  });
+});
+
+// === Flatpickr Initialization ===
+flatpickr("#preferredDate", {
+  dateFormat: "Y-m-d",
+  disableMobile: true  // Force custom calendar even on mobile
+});
