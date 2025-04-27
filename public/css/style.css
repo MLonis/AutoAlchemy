@@ -294,13 +294,11 @@ section {
 
 /* Make the message textarea span across both columns */
 .form-grid textarea {
-  grid-column: span 1;
   resize: none;
 }
 
 /* Submit Button */
 .estimate-form button {
-  grid-column: span 1;
   width: 100%;
   background: var(--color-primary-blue);
   color: var(--color-dark-gray);
