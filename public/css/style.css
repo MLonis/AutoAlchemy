@@ -272,9 +272,10 @@ section {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
+
   .form-grid textarea,
   .estimate-form button {
-    grid-column: span 1 / -1;
+    grid-column: 2;
   }
 }
 
