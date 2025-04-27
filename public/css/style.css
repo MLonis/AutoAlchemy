@@ -269,7 +269,7 @@ section {
 /* Tablets & up: switch to two columns */
 @media (min-width: 769px) {
   .form-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr !important
     gap: 1.5rem;
   }
 }
@@ -290,13 +290,13 @@ section {
 
 /* Make the message textarea span across both columns */
 .form-grid textarea {
-  grid-column: span 2;
+  grid-column: span 1;
   resize: none;
 }
 
 /* Submit Button */
 .estimate-form button {
-  grid-column: span 2;
+  grid-column: span 1;
   width: 100%;
   background: var(--color-primary-blue);
   color: var(--color-dark-gray);
