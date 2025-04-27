@@ -87,7 +87,7 @@ app.post('/send', async (req, res) => {
 });
 
 // 4) Catch-all for client-side routing & static SPA
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
