@@ -586,7 +586,7 @@ h2 {
 
 /* ===== Responsive tweaks ===== */
 /* 1) Mobile & small tablets: stack everything and make form one column */
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   /* Hamburger toggle */
   #menu-toggle {
     display: block;
