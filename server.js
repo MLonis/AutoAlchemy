@@ -1,55 +1,44 @@
+// server.js
+
 require('dotenv').config();
-const express = require('express');
+const express    = require('express');
 const nodemailer = require('nodemailer');
-const cors = require('cors');
-const path = require('path');
-const app = express();
+const cors       = require('cors');
+const path       = require('path');
+
+const app  = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
+// 1) Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public')); // Serve static files
+app.use(express.static('public'));  // serves your CSS, JS, images, etc.
 
-// Serve index.html for all unknown routes (for Render deployment)
-app.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-// Email transporter
+// 2) Email Transporter (Gmail + App Password)
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
+    user: process.env.EMAIL_USER,  // e.g. 'autoalchemy1@gmail.com'
+    pass: process.env.EMAIL_PASS   // your 16-char App Password
   }
 });
 
-// Routes
+// 3) Your API Route: POST /send
 app.post('/send', async (req, res) => {
   const {
-    name,
-    email,
-    phone,
-    makeModel,
-    vehicleType,
-    location,
-    condition,
-    mattePaint,
-    petHair,
-    service,
-    preferredDate,
-    appointmentTime,
-    message
+    name, email, phone, makeModel, vehicleType,
+    location, condition, mattePaint, petHair,
+    service, preferredDate, appointmentTime, message
   } = req.body;
 
   try {
     await transporter.sendMail({
-      from: `"Auto Alchemy" <${process.env.EMAIL_USER}>`,
-      to: 'autoalchemy1@gmail.com',
+      from:    `"Auto Alchemy" <${process.env.EMAIL_USER}>`,
+      to:      'autoalchemy1@gmail.com',    // keeps sending to your business inbox
+      replyTo: email,                       // so “Reply” goes to the customer
       subject: '🚘 New Auto Alchemy Estimate Request',
       html: `
-      <div style="background: #0a0a0a; padding: 30px; border-radius: 12px; max-width: 600px; margin: auto; font-family: 'Segoe UI', sans-serif; color: #FFFFFF;">
+       <div style="background: #0a0a0a; padding: 30px; border-radius: 12px; max-width: 600px; margin: auto; font-family: 'Segoe UI', sans-serif; color: #FFFFFF;">
         <div style="text-align: center;">
           <img src="cid:logo" alt="Auto Alchemy Logo" style="width: 100px; margin-bottom: 15px;">
         </div>
@@ -81,21 +70,28 @@ app.post('/send', async (req, res) => {
         </p>
       </div>
       `,
-      attachments: [
-        {
-          filename: 'logo.png',
-          path: path.join(__dirname, 'public/images/logo.png'),
-          cid: 'logo' // match the img src cid:logo
-        }
-      ]
+      attachments: [{
+        filename: 'logo.png',
+        path:     path.join(__dirname, 'public/images/logo.png'),
+        cid:      'logo'
+      }]
     });
 
-    res.status(200).send('Email sent successfully!');
-  } catch (error) {
-    console.error('❌ EMAIL ERROR:', error.message, error.response?.body || error.response);
-    res.status(500).send(`Error sending email: ${error.message}`);
-  }  
+    return res.status(200).send('Email sent successfully!');
+  } catch (err) {
+    console.error('❌ EMAIL ERROR:', err);
+    return res
+      .status(500)
+      .send(`Error sending email: ${err.message}`);
+  }
 });
 
-// Start server
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// 4) Catch-all for client-side routing & static SPA
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// 5) Start Server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

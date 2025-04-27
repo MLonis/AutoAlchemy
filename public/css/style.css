@@ -585,9 +585,9 @@ h2 {
 }
 
 /* ===== Responsive tweaks ===== */
-/* Tablet & phone */
-@media (max-width: 768px) {
-  /* 1) Hamburger toggle */
+/* 1) Mobile & small tablets: stack everything and make form one column */
+@media (max-width: 992px) {
+  /* Hamburger toggle */
   #menu-toggle {
     display: block;
     position: absolute;
@@ -598,11 +598,10 @@ h2 {
     color: var(--color-white);
     border: none;
     cursor: pointer;
-    margin-right: 1rem;
-    z-index: 1100; 
+    z-index: 1100;
   }
 
-  /* 2) Backdrop */
+  /* Backdrop */
   .menu-backdrop {
     position: fixed;
     inset: 0;
@@ -617,7 +616,7 @@ h2 {
     pointer-events: auto;
   }
 
-  /* 3) Mobile nav */
+  /* Mobile nav */
   .nav-links {
     display: none;
     flex-direction: column;
@@ -651,17 +650,17 @@ h2 {
     color: var(--color-primary-orange);
   }
 
-  /* 4) Navbar adjustments */
+  /* Navbar adjustments */
   .navbar {
     flex-direction: column;
     align-items: flex-start;
-    padding: 1rem; 
+    padding: 1rem;
     width: 100%;
     position: relative;
     z-index: 1002;
   }
 
-  /* 5) Hero fix */
+  /* Hero fix */
   .hero {
     display: flex;
     flex-direction: column;
@@ -681,43 +680,40 @@ h2 {
     font-size: 1rem;
   }
 
-  /* 6) Stack cards, reviews, and form */
+  /* Stack cards & reviews */
   .service-cards,
   .review-cards {
     flex-direction: column;
     align-items: center;
   }
 
+  /* Service list tweaks */
   .service-list {
-    padding-left: 10px; 
+    padding-left: 10px;
   }
-
   .service-list li {
-    padding-left: 5px;  
-    margin-bottom: 0.8rem; 
+    padding-left: 5px;
+    margin-bottom: 0.8rem;
     align-items: center;
   }
-
   .service-list i {
-    font-size: 1.3rem; 
-    margin-right: 10px; 
+    font-size: 1.3rem;
+    margin-right: 10px;
   }
-
   .service-list li:hover {
-    transform: none; 
+    transform: none;
   }
 
+  /* Estimate form: full-width single column */
   .estimate-form {
     width: 100%;
   }
-
   .form-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr;
     gap: 1rem;
     padding: 0 1rem;
   }
-  
   .form-grid input,
   .form-grid select,
   .form-grid textarea {
@@ -726,103 +722,69 @@ h2 {
     max-width: 100%;
   }
 
-  /* 7) Social links stack */
+  /* Social links stack */
   .social-links {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    gap: 1.2rem;            
-    margin-top: 2rem;   
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: 2rem;
   }
-
   .social-links a {
-    font-size: 1.1rem;    
+    font-size: 1.1rem;
     text-decoration: none;
   }
-
   .social-links i {
     margin-right: 0;
     margin-bottom: 0.5rem;
   }
 
-  /* 8) Logo sizing */
+  /* Logo sizing */
   .logo {
     margin-left: 1rem;
     max-width: 80px;
   }
 
-  /* Fix date input text overlap on mobile */
+  /* Date input fix */
   input[type="date"] {
-    font-size: 0.9rem; 
+    font-size: 0.9rem;
   }
 
+  /* Back-to-top adjustment */
   .back-to-top {
-    bottom: 90px; 
-    right: 10px;   
-  }  
+    bottom: 90px;
+    right: 10px;
+  }
 }
 
-/* Shrink placeholders and padding on tiny screens */
+/* ===== Tiny-screen tweaks ===== */
 @media (max-width: 480px) {
-  /* Make placeholders smaller */
+  /* Shrink placeholder text */
   input::placeholder,
   textarea::placeholder,
   select {
     font-size: 0.75rem;
   }
 
-  /* 2-column layout stays for most phones */
-  .form-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
+  /* Tighter padding & fixed heights for inputs */
   .form-grid input,
   .form-grid select,
   .form-grid textarea {
-    width: 100%;
-    height: 50px;
     padding: 0.5rem;
+    height: 50px;
     font-size: 0.9rem;
-    border: 2px solid var(--color-primary-blue);
-    border-radius: 8px;
-    background: #1a1a1a;
-    color: var(--color-white);
-    box-sizing: border-box;
-    appearance: none;
-    -webkit-appearance: none;
   }
 
   .form-grid textarea {
     height: 120px;
   }
 
+  /* Date input sizing */
   input[type="date"] {
     appearance: none;
     -webkit-appearance: none;
-    height: 50px;
     padding: 0.5rem;
+    height: 50px;
     font-size: 0.9rem;
-    border: 2px solid var(--color-primary-blue);
-    border-radius: 8px;
-    background: #1a1a1a;
-    color: var(--color-white);
-    box-sizing: border-box;
   }
-}
-
-/* Tiny phones — stack all fields */
-@media (max-width: 400px) {
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-input,
-textarea,
-select {
-  font-size: 16px;        /* Prevent iOS zooming */
-  line-height: 1.5;       /* Fix letter cutoff */
-  padding: 0.75rem;       /* Better vertical spacing */
-  height: auto;           /* Prevent clipping */
-  box-sizing: border-box;
 }
