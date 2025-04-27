@@ -38,37 +38,49 @@ app.post('/send', async (req, res) => {
       replyTo: email,                       // so “Reply” goes to the customer
       subject: '🚘 New Auto Alchemy Estimate Request',
       html: `
-       <div style="background: #0a0a0a; padding: 30px; border-radius: 12px; max-width: 600px; margin: auto; font-family: 'Segoe UI', sans-serif; color: #FFFFFF;">
-        <div style="text-align: center;">
-          <img src="cid:logo" alt="Auto Alchemy Logo" style="width: 100px; margin-bottom: 15px;">
-        </div>
-        <h2 style="text-align: center; color: #3AB6FF;">Auto Alchemy</h2>
-        <p style="text-align: center; color: #CCCCCC; margin-bottom: 20px;">Premium Mobile Detailing</p>
-        <hr style="border: none; height: 2px; background: linear-gradient(to right, transparent, #3AB6FF, transparent); margin: 20px 0;">
-        <h3 style="color: #5AD1FF;">Customer Information</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> <a href="mailto:${email}" style="color: #5AD1FF; text-decoration: none;">${email}</a></p>
-        <p><strong>Phone:</strong> <a href="tel:${phone}" style="color: #5AD1FF; text-decoration: none;">${phone}</a></p>
-        <p><strong>City:</strong> ${location}</p>
-        <hr style="border: none; height: 1px; background: #333; margin: 20px 0;">
-        <h3 style="color: #5AD1FF;">Vehicle & Service Details</h3>
-        <p><strong>Make & Model:</strong> ${makeModel}</p>
-        <p><strong>Vehicle Type:</strong> ${vehicleType}</p>
-        <p><strong>Condition:</strong> ${condition}</p>
-        <p><strong>Matte Paint:</strong> ${mattePaint}</p>
-        <p><strong>Pet Hair:</strong> ${petHair}</p>
-        <p><strong>Service Requested:</strong> ${service}</p>
-        <p><strong>Preferred Date:</strong> ${preferredDate}</p>
-        <p><strong>Preferred Time:</strong> ${appointmentTime}</p>
-        <hr style="border: none; height: 1px; background: #333; margin: 20px 0;">
-        <h3 style="color: #FF6B00;">Additional Notes</h3>
-        <p>${message}</p>
-        <hr style="border: none; height: 2px; background: linear-gradient(to right, transparent, #FF6B00, transparent); margin: 30px 0;">
-        <p style="text-align: center; font-size: 0.95rem; color: #999; margin-top: 20px; text-shadow: 0 0 4px rgba(90,209,255,0.3);">
-          <strong style="color: #3AB6FF;">Auto Alchemy</strong><br>
-          Premium Mobile Detailing | Exceptional Care, Every Time.
-        </p>
-      </div>
+        <body style="margin:0;padding:0;background-color:#000000;color:#FFFFFF;">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#000000">
+            <tr>
+              <td align="center">
+                <div style="padding: 30px; border-radius: 12px; max-width: 600px; font-family: 'Segoe UI', sans-serif; color: #FFFFFF;">
+                  <div style="text-align: center; margin-bottom: 15px;">
+                    <img src="cid:logo" alt="Auto Alchemy Logo" style="width:100px; display:block; margin:0 auto;"/>
+                  </div>
+                  <h2 style="text-align: center; color: #3AB6FF;">Auto Alchemy</h2>
+                  <p style="text-align: center; color: #CCCCCC; margin-bottom: 20px;">Premium Mobile Detailing</p>
+                  <hr style="border: none; height: 2px; background: linear-gradient(to right, transparent, #3AB6FF, transparent); margin: 20px 0;">
+
+                  <h3 style="color: #5AD1FF;">Customer Information</h3>
+                  <p><strong>Name:</strong> ${name}</p>
+                  <p><strong>Email:</strong> <a href="mailto:${email}" style="color: #5AD1FF; text-decoration: none;">${email}</a></p>
+                  <p><strong>Phone:</strong> <a href="tel:${phone}" style="color: #5AD1FF; text-decoration: none;">${phone}</a></p>
+                  <p><strong>City:</strong> ${location}</p>
+
+                  <hr style="border: none; height: 1px; background: #333; margin: 20px 0;">
+                  <h3 style="color: #5AD1FF;">Vehicle & Service Details</h3>
+                  <p><strong>Make & Model:</strong> ${makeModel}</p>
+                  <p><strong>Vehicle Type:</strong> ${vehicleType}</p>
+                  <p><strong>Condition:</strong> ${condition}</p>
+                  <p><strong>Matte Paint:</strong> ${mattePaint}</p>
+                  <p><strong>Pet Hair:</strong> ${petHair}</p>
+                  <p><strong>Service Requested:</strong> ${service}</p>
+                  <p><strong>Preferred Date:</strong> ${preferredDate}</p>
+                  <p><strong>Preferred Time:</strong> ${appointmentTime}</p>
+
+                  <hr style="border: none; height: 1px; background: #333; margin: 20px 0;">
+                  <h3 style="color: #FF6B00;">Additional Notes</h3>
+                  <p>${message}</p>
+                  
+                  <hr style="border: none; height: 2px; background: linear-gradient(to right, transparent, #FF6B00, transparent); margin: 30px 0;">
+                  <p style="text-align: center; font-size: 0.95rem; color: #999; margin-top: 20px; text-shadow: 0 0 4px rgba(90,209,255,0.3);">
+                    <strong style="color: #3AB6FF;">Auto Alchemy</strong><br>
+                    Premium Mobile Detailing | Exceptional Care, Every Time.
+                  </p>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </body>
       `,
       attachments: [{
         filename: 'logo.png',
@@ -80,9 +92,7 @@ app.post('/send', async (req, res) => {
     return res.status(200).send('Email sent successfully!');
   } catch (err) {
     console.error('❌ EMAIL ERROR:', err);
-    return res
-      .status(500)
-      .send(`Error sending email: ${err.message}`);
+    return res.status(500).send(`Error sending email: ${err.message}`);
   }
 });
 
