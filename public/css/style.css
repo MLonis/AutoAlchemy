@@ -275,7 +275,7 @@ section {
 
   .form-grid textarea,
   .estimate-form button {
-    grid-column: 2;
+    grid-column: span 2;
   }
 }
 
