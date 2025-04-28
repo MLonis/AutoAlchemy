@@ -55,6 +55,7 @@ document.getElementById("estimate-form").addEventListener("submit", async e => {
     email: form.email.value,
     makeModel: form.makeModel.value,
     vehicleType: form.vehicleType.value,
+    location: form.location.value,
     condition: form.condition.value,
     petHair: form.petHair.value,
     mattePaint: form.mattePaint.value,
