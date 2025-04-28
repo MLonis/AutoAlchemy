@@ -221,6 +221,26 @@ section {
   color: var(--color-primary-blue);
 }
 
+/* Make the Google Review CTA match the hero/estimate button */
+.review-cta .cta-btn {
+  display: inline-block;
+  margin: 2rem auto;                /* same vertical spacing as estimate button */
+  padding: 1rem 2rem;               /* same padding */
+  background: linear-gradient(45deg, var(--color-primary-blue), var(--color-secondary-blue));
+  color: var(--color-dark-gray);
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(58, 182, 255, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.review-cta .cta-btn:hover {
+  background: linear-gradient(45deg, var(--color-primary-orange), #FF8533);
+  transform: translateY(-7px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(255, 107, 0, 0.5);
+}
+
 /* Estimate Section */
 .estimate {
   background: transparent;
