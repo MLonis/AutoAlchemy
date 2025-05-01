@@ -79,6 +79,7 @@
     <form class="estimate-form" id="estimate-form">
       <div class="form-grid">
         <!-- 1. Service -->
+        <label for="service" class="sr-only">Service</label>
         <select id="service" name="service" required autocomplete="off">
           <option value="">Select Service</option>
           <option value="interior">Interior Detail</option>
@@ -87,6 +88,7 @@
         </select>
     
         <!-- 2. Vehicle Type -->
+        <label for="vehicleType" class="sr-only">Vehicle Type</label>
         <select id="vehicleType" name="vehicleType" required autocomplete="off">
           <option value="">Select Vehicle Type</option>
           <option value="Car">Car</option>
@@ -97,6 +99,7 @@
         </select>
     
         <!-- 3. Year, Make, Model -->
+        <label for="makeModel" class="sr-only">Year, Make, Model</label>
         <input
           type="text"
           name="makeModel"
@@ -106,6 +109,7 @@
         />
     
         <!-- 4. Condition -->
+        <label for="condition" class="sr-only">Condition</label>
         <select id="condition" name="condition" required autocomplete="off">
           <option value="">Condition of Vehicle?</option>
           <option value="Excellent">Excellent</option>
@@ -115,7 +119,8 @@
         </select>
     
         <!-- 5. Pet Hair -->
-        <select name="petHair" required autocomplete="off">
+        <label for="petHair" class="sr-only">Pet Hair</label>
+        <select id="petHair" name="petHair" required autocomplete="off">
           <option value="">Pet Hair?</option>
           <option value="No">No</option>
           <option value="Light">Light</option>
@@ -124,13 +129,15 @@
         </select>
     
         <!-- 6. Matte Paint -->
-        <select name="mattePaint" required autocomplete="off">
+        <label for="mattePaint" class="sr-only">Matte Paint</label>
+        <select id="mattePaint" name="mattePaint" required autocomplete="off">
           <option value="">Matte Paint?</option>
           <option value="No">No</option>
           <option value="Yes">Yes</option>
         </select>
     
         <!-- 7. Full Name -->
+        <label for="name" class="sr-only">Name</label>
         <input
           type="text"
           name="name"
@@ -140,6 +147,7 @@
         />
     
         <!-- 8. Phone Number -->
+        <label for="phone" class="sr-only">Phone Number</label>
         <input
           type="tel"
           name="phone"
@@ -149,6 +157,7 @@
         />
     
         <!-- 9. Email Address -->
+        <label for="email" class="sr-only">Email</label>
         <input
           type="email"
           name="email"
@@ -158,6 +167,7 @@
         />
     
         <!-- 10. City -->
+        <label for="location" class="sr-only">Location</label>
         <input
           type="text"
           name="location"
@@ -167,6 +177,7 @@
         />
     
         <!-- 11. Preferred Time -->
+        <label for="appointmentTime" class="sr-only">Appointment Time</label>
         <select id="appointmentTime" name="appointmentTime" required autocomplete="off">
           <option value="">Preferred Appointment Time</option>
           <option value="Morning">Morning</option>
@@ -175,6 +186,7 @@
         </select>
     
         <!-- 12. Preferred Date -->
+        <label for="preferredDate" class="sr-only">Preferred Date</label>
         <input
           type="text"
           id="preferredDate"
@@ -186,6 +198,7 @@
         />
     
         <!-- 13. Additional Info -->
+        <label for="message" class="sr-only">Additional Info</label>
         <textarea
           name="message"
           placeholder="Additional Info (optional)"
@@ -207,13 +220,13 @@
       <p><strong>Phone:</strong> (440) 725-3605</p>
       <p><strong>Email:</strong> autoalchemy1@gmail.com</p>
       <div class="social-links">
-        <a href="https://www.instagram.com/YOUR_USERNAME" target="_blank">
+        <a href="https://www.instagram.com/YOUR_USERNAME" target="_blank" rel="noopener">
           <i class="fab fa-instagram"></i> Instagram
         </a>
-        <a href="https://www.tiktok.com/@YOUR_USERNAME" target="_blank">
+        <a href="https://www.tiktok.com/@YOUR_USERNAME" target="_blank" rel="noopener">
           <i class="fab fa-tiktok"></i> TikTok
         </a>
-        <a href="https://www.facebook.com/YOUR_USERNAME" target="_blank">
+        <a href="https://www.facebook.com/YOUR_USERNAME" target="_blank" rel="noopener">
           <i class="fab fa-facebook"></i> Facebook
         </a>
       </div>
